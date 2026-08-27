@@ -17,6 +17,8 @@
  * يمكن استبدال الصوت كله بملف تضعه في public/sounds/ — انظر أدناه.
  */
 
+import { assetUrl } from './assetUrl.js';
+
 const STORAGE_KEY = 'osama3d:sound';
 
 class Clicker {
@@ -95,7 +97,9 @@ class Clicker {
    * ملاحظة: استخدم ملفًا تملك حقه. استخراج الأصوات من يوتيوب أو من
    * أجهزة تجارية يخالف شروطها وحقوق أصحابها.
    */
-  async loadClickFile(sources = ['/sounds/click.mp3', '/sounds/click.wav', '/sounds/click.ogg']) {
+  async loadClickFile(
+    sources = ['mp3', 'wav', 'ogg'].map((ext) => assetUrl(`sounds/click.${ext}`))
+  ) {
     this.unlock();
     if (!this.ctx) return false;
 

@@ -13,7 +13,7 @@
 
 ```bash
 npm install
-npm run dev          # على هذا الجهاز:  http://localhost:5173
+npm run dev          # على هذا الجهاز:  http://localhost:5173/alaseel-tech-3d/
 npm run dev:mobile   # يتيحه لأجهزة الشبكة نفسها (هاتف/تابلت)
 npm run build        # نسخة الإنتاج في مجلد dist/
 npm run preview      # معاينة نسخة الإنتاج

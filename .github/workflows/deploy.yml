@@ -1,0 +1,52 @@
+# ينشر الموقع تلقائيًا على GitHub Pages عند كل رفع إلى الفرع main.
+# لا حاجة لأي خطوة يدوية بعد ذلك: ارفع تعديلك، وبعد دقيقة يظهر منشورًا.
+
+name: نشر الموقع
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # يسمح بتشغيل النشر يدويًا من صفحة Actions
+
+# الصلاحيات اللازمة للنشر على Pages، لا أكثر
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# نشر واحد في كل مرة؛ ولا نُلغي نشرًا جاريًا حتى لا يبقى الموقع نصف محدّث
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: بناء
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # ci أدق من install: يثبّت النسخ المذكورة في package-lock حرفيًا
+      - run: npm ci
+
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: نشر
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

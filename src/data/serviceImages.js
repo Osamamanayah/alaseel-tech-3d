@@ -1,7 +1,9 @@
 /** الصور الواقعية لخدمات الشركة — خمس لقطات لكل قسم. */
+import { assetUrl } from '../core/assetUrl.js';
+
 const five = (folder) => Array.from(
   { length: 5 },
-  (_, index) => `/images/services/${folder}/${String(index + 1).padStart(2, '0')}.webp`,
+  (_, index) => assetUrl(`images/services/${folder}/${String(index + 1).padStart(2, '0')}.webp`),
 );
 
 export const SERVICE_IMAGE_SETS = [

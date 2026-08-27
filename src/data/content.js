@@ -56,6 +56,7 @@ export const BRAND = {
 };
 
 import { serviceImageSetById } from './serviceImages.js';
+import { assetUrl } from '../core/assetUrl.js';
 
 /* ------------------------------------------------------------------ */
 
@@ -86,7 +87,7 @@ const backdropFor = (accent) => ({
 const SECTIONS = [
   {
     id: 'web-apps',
-    image: '/images/sections/web-development.webp',
+    image: assetUrl('images/sections/web-development.webp'),
     label: 'إنشاء المواقع',
     title: 'إنشاء المواقع',
     blurb: 'مواقع ومتاجر وأنظمة تعمل داخل المتصفح.',
@@ -95,7 +96,7 @@ const SECTIONS = [
   },
   {
     id: 'native-apps',
-    image: '/images/sections/applications.webp',
+    image: assetUrl('images/sections/applications.webp'),
     label: 'إنشاء التطبيقات',
     title: 'إنشاء التطبيقات',
     blurb: 'تطبيقات للهواتف وبرامج لأجهزة الكمبيوتر.',
@@ -112,7 +113,7 @@ const SECTIONS = [
   },
   {
     id: 'ai-data',
-    image: '/images/sections/artificial-intelligence.webp',
+    image: assetUrl('images/sections/artificial-intelligence.webp'),
     label: 'ذكاء اصطناعي',
     title: 'الذكاء الاصطناعي وتحليل البيانات',
     blurb: 'معالجة البيانات وبناء أنظمة الذكاء الاصطناعي.',
