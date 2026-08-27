@@ -1,0 +1,9 @@
+# ترويسات أمان تُطبَّق عند النشر على Netlify أو Cloudflare Pages.
+# سياسة أمان المحتوى نفسها موجودة أيضًا داخل index.html، لتعمل
+# حتى لو نُشر الموقع على استضافة لا تقرأ هذا الملف.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
+  Cross-Origin-Opener-Policy: same-origin

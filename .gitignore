@@ -1,0 +1,46 @@
+﻿# dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# build output
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# secrets  —  لا ترفع كلمات السر أبدًا
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# editors / os
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# أداة تحقق بصري محلية (ليست جزءًا من الموقع)
+tools/
+
+# مخرجات البناء
+dist/
+
+# نسخة احتياطية من التاريخ القديم — احذفها متى شئت
+.git.old/

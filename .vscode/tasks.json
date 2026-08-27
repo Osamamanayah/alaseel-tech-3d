@@ -1,0 +1,32 @@
+﻿{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "open-guide-and-claude",
+      "type": "shell",
+      "command": "echo ${input:previewGuide} ${input:focusClaude}",
+      "presentation": {
+        "reveal": "never",
+        "echo": false,
+        "panel": "dedicated",
+        "close": true
+      },
+      "runOptions": { "runOn": "folderOpen" },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "previewGuide",
+      "type": "command",
+      "command": "markdown.showPreview",
+      "args": {}
+    },
+    {
+      "id": "focusClaude",
+      "type": "command",
+      "command": "claudeVSCodeSidebarSecondary.focus",
+      "args": {}
+    }
+  ]
+}

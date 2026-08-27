@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#04060f" />
+
+  <!-- سياسة أمان المحتوى: تمنع تشغيل أي سكربت لم يأتِ من هذا الموقع نفسه،
+       وهي الحاجز الأهم ضد هجمات حقن السكربتات (XSS).
+       img-src data: مطلوب لأن صور الأقسام ورمز QR تُرسم داخل المتصفح.
+       connect-src ws: مطلوب لتحديث الصفحة تلقائيًا أثناء التطوير فقط.
+       منع التضمين داخل إطار (frame-ancestors) يعمل كترويسة HTTP فقط،
+       وهو مضبوط في public/_headers مع X-Frame-Options. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: blob:;
+    connect-src 'self' ws: wss: https://fonts.googleapis.com https://fonts.gstatic.com;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'none';
+    upgrade-insecure-requests
+  " />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- إعدادات الجوال: تمنع التكبير بالنقر المزدوج على iOS، وتجعل الموقع
+       يملأ الشاشة كاملة عند إضافته إلى الشاشة الرئيسية في أبل وأندرويد -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ALASEEL TECH" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>ALASEEL TECH — الأصيل تِك | استوديو برمجيات</title>
+  <meta name="description" content="ALASEEL TECH — الأصيل تِك: مواقع وتطبيقات وأنظمة ذكاء اصطناعي وحماية وأتمتة، داخل فضاء رقمي واحد متصل." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ar_AR" />
+  <meta property="og:title" content="ALASEEL TECH — الأصيل تِك" />
+  <meta property="og:description" content="لنحوّل فكرتك إلى مساحة رقمية." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2304060f'/%3E%3Crect x='9' y='9' width='14' height='14' rx='3' fill='none' stroke='%2322d3ee' stroke-width='2'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- الخط العربي: تحسين اختياري فقط. media="print" يمنع تعطيل عرض الصفحة
+       إذا كان الاتصال بطيئًا أو مقطوعًا، ثم يُفعَّل عند اكتمال التحميل. -->
+  <link id="font-link" rel="stylesheet" media="print"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" />
+
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- ===== النسخة الدلالية: لمحركات البحث وقارئات الشاشة ===== -->
+  <!-- محتوى حقيقي (ليس مخفيًا بـ display:none) لكنه خارج نطاق العرض البصري -->
+  <main id="semantic-content" class="sr-only">
+    <h1>ALASEEL TECH — الأصيل تِك</h1>
+    <p>استوديو برمجيات: مواقع وتطبيقات وقواعد بيانات وأتمتة وحماية وذكاء اصطناعي وألعاب.</p>
+    <nav aria-label="أقسام الاستوديو">
+      <h2>أقسام الاستوديو</h2>
+      <ul id="semantic-keywords"></ul>
+    </nav>
+    <section aria-label="الأقسام والخدمات">
+      <h2>الأقسام والخدمات</h2>
+      <div id="semantic-projects"></div>
+    </section>
+    <section aria-label="التواصل">
+      <h2>تواصل معنا</h2>
+      <ul id="semantic-contact"></ul>
+    </section>
+  </main>
+
+  <!-- ===== التجربة ثلاثية الأبعاد ===== -->
+  <div id="app">
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <div id="ui-root"></div>
+  </div>
+
+  <noscript>
+    <div class="noscript-note">
+      هذا الموقع تجربة ثلاثية الأبعاد تحتاج JavaScript. المحتوى النصي الكامل متاح أعلاه.
+    </div>
+  </noscript>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

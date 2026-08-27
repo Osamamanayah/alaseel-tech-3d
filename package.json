@@ -1,0 +1,23 @@
+{
+  "name": "osama-software-3d",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "موقع ثلاثي الأبعاد - أسامه للبرمجيات",
+  "scripts": {
+    "dev": "vite",
+    "dev:mobile": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "qrcode-generator": "^2.0.4",
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.9.0",
+    "sharp": "^0.35.4",
+    "vite": "^8.2.2"
+  }
+}

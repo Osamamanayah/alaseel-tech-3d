@@ -1,0 +1,18 @@
+﻿{
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 14,
+  "editor.linkedEditing": true,
+  "editor.bracketPairColorization.enabled": true,
+  "terminal.integrated.fontSize": 13,
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.postCommitCommand": "sync",
+  "explorer.compactFolders": false,
+  "workbench.startupEditor": "none",
+  "workbench.tree.indent": 16,
+  "task.allowAutomaticTasks": "on"
+}
