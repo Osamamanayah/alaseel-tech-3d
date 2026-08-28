@@ -27,9 +27,14 @@ function detectTier() {
 
 const PRESETS = {
   //          particles = جزيئات التفكك | latticeNodes = عقد الشبكة | dpr = دقة الرسم
-  high:   { particles: 9000, latticeNodes: 420, dpr: 2.0,  bloom: true,  starCount: 2600 },
-  medium: { particles: 4200, latticeNodes: 240, dpr: 1.6,  bloom: true,  starCount: 1400 },
-  low:    { particles: 1600, latticeNodes: 120, dpr: 1.25, bloom: false, starCount: 700  },
+  //
+  // dpr سقف دقة الرسم. شاشات الهواتف كثافتها 2.6 إلى 3، فالرسم بدقة
+  // 1.6 يعني تكبير المشهد كله فيظهر النص ضبابيًا. رفعناها إلى 2 —
+  // وهي دقة كافية بصريًا وأخف بكثير من 3. لو ثقُلت على جهاز ضعيف
+  // فمراقب الأداء يخفضها تلقائيًا.
+  high:   { particles: 9000, latticeNodes: 420, dpr: 2.0, bloom: true,  starCount: 2600 },
+  medium: { particles: 4200, latticeNodes: 240, dpr: 2.0, bloom: true,  starCount: 1400 },
+  low:    { particles: 1600, latticeNodes: 120, dpr: 1.5, bloom: false, starCount: 700  },
 };
 
 export const quality = {

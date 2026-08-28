@@ -149,10 +149,14 @@ export class Panels {
     const h = sheet ? sheet.offsetHeight : 420;
     const margin = 24;
 
+    // على الشاشات الضيقة يجلس شريط التوجيه أعلى الشاشة، فنترك له
+    // مساحة كافية وإلا جلس زر العودة والمسار فوق اللوحة.
+    const topMargin = window.innerWidth <= 900 ? 86 : margin;
+
     const half = { x: w / 2, y: h / 2 };
     const target = {
       x: clamp(screen.x, half.x + margin, window.innerWidth - half.x - margin),
-      y: clamp(screen.y, half.y + margin, window.innerHeight - half.y - margin),
+      y: clamp(screen.y, half.y + topMargin, window.innerHeight - half.y - margin),
     };
 
     if (this._needsSnap) {

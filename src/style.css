@@ -537,6 +537,8 @@ button, a { font-weight: 600; }
   position: relative;
   aspect-ratio: 1 / 1;
   width: 100%;
+  min-width: 140px;   /* حزام أمان: لا تنهار الحاوية إن فشل حساب العرض */
+  min-height: 140px;
   cursor: pointer;
   perspective: 1100px;
   border-radius: 14px;
@@ -757,12 +759,20 @@ button, a { font-weight: 600; }
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
     width: min(94vw, 520px);
-    max-height: 86svh;
+    max-height: 78svh;
     overflow-y: auto;
     overscroll-behavior: contain;
     padding: 18px;
   }
-  .sheet__media { max-width: 260px; margin-inline: auto; }
+  /* width: 100% ضرورية هنا ولا يمكن حذفها.
+     السبب: margin-inline: auto داخل Grid يُلغي التمدّد التلقائي،
+     فيتقلّص العنصر إلى عرض محتواه — ومحتواه كله position: absolute
+     أي عرضه صفر، فتختفي الصور تمامًا على الهاتف. */
+  .sheet__media {
+    width: 100%;
+    max-width: 260px;
+    margin-inline: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
